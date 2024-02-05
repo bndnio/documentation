@@ -155,7 +155,7 @@ const { createLogger, format, transports } = require('winston');
 
 const httpTransportOptions = {
   host: 'http-intake.logs.{{< region-param key="dd_site" >}}',
-  path: '/api/v2/logs?dd-api-key=<DATADOG_API_KEY>&ddsource=nodejs&service=<APPLICATION_NAME>',
+  path: '/api/v2/logs?dd-api-key=<DATADOG_API_KEY>&ddsource=nodejs&service=<APPLICATION_NAME>&ddtags=env:<ENVIRONMENT_NAME>',
   ssl: true
 };
 
