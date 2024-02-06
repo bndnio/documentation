@@ -60,11 +60,12 @@ In your bootstrap file or in your code, declare the logger in the following way:
 ```js
 
 const { createLogger, format, transports } = require('winston');
+const { combine, timestamp, json } = format;
 
 const logger = createLogger({
   level: 'info',
   exitOnError: false,
-  format: format.json(),
+  format: combine(timestamp(), json()),
   transports: [
     new transports.File({ filename: `${appRoot}/logs/<FILE_NAME>.log` }),
   ],
